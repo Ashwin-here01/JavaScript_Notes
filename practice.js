@@ -1,0 +1,568 @@
+/*
+const product = {
+    name : "Parker Jotter Standard CT Ball Pen (Black)",
+    rating : 4,
+    price : 270,
+    offer : 5
+};
+
+console.log(product);
+console.log(product.name);
+console.log(product.rating);
+console.log(product.price);
+console.log(product.offer);
+
+let num = 17;
+if(num % 2) {
+    console.log("Odd");
+} else {
+    console.log("Even");
+}
+
+let num = prompt("Enter a number:");
+
+if(num % 5) {
+    console.log("Not a multiple of 5");
+} else {
+    console.log("Multiple of 5");
+}
+
+let marks = prompt("Enter your marks:");
+let grade;
+
+if(marks >= 80 && marks <= 100) {
+    grade = "A";
+} else if(marks >= 70 && marks <= 79) {
+    grade = "B";
+} else if(marks >= 60 && marks <= 69) {
+    grade = "C";
+} else if(marks >= 50 && marks <= 59) {
+    grade = "D";
+} else if(marks >= 0 && marks <= 49) {
+    grade = "F";
+} else {
+    grade = "Invalid Input";
+}
+if (grade === "Invalid Input") {
+    console.log(grade);
+} else {
+    console.log("Grade:", grade);
+}
+
+for (let i = 0; i <= 100; i++) {
+    if(i % 2 === 0) {
+        console.log(i);
+    }
+}
+
+let gamenum = 53;
+let i = 0;
+do {
+    i = prompt("Enter a number:");
+} while (i != gamenum);
+console.log("You entered the correct number");
+
+let name = prompt("Enter your full name (without spaces):");
+let username = "@" + name + name.length;
+console.log(`Username: ${username}`);
+
+let marks = [85, 97, 44, 37, 76, 60];
+let sum = 0;
+for (let i=0; i < marks.length; i++) {
+    sum += marks[i];
+}
+console.log("Average:", sum/marks.length);
+
+let price = [250, 645, 300, 900, 50];
+console.log(price);
+for (let i=0; i < price.length; i++) {
+    price[i] -= (price[i]/10);
+}
+console.log(price);
+
+let companies = ["Bloomberg", 'Microsoft', 'Uber', "Google", 'IBM', "Netflix"];
+console.log(companies);
+companies.shift();
+console.log(companies);
+companies.splice(1, 1, "Ola");
+console.log(companies);
+companies.push("Amazon");
+console.log(companies);
+
+function vowel(str) {
+    let sum = 0;
+    for(let letter of str) {
+        if(letter === 'a' || letter === 'e' || letter === 'i' || letter === "o" || letter === 'u' || letter === 'A' || letter === 'E' || letter === "I" || letter === "O" || letter === "U") {
+            sum++;
+        }
+    }
+    return sum;
+}
+let numofvowel = vowel("This is me... If you  wanna learn JS ejaculate and evacuate");
+console.log(numofvowel);
+const arrowVowel = (str) => {
+    let sum = 0;
+    for(let letter of str) {
+        if(letter === 'a' || letter === 'e' || letter === 'i' || letter === "o" || letter === 'u' || letter === 'A' || letter === 'E' || letter === "I" || letter === "O" || letter === "U") {
+            sum++;
+        }
+    }
+    return sum;
+}
+numofvowel = vowel("This is me... If you  wanna learn JS ejaculate and evacuate");
+console.log(numofvowel);
+
+let number = [2, 3, 7, 4, 9, 11, 25];
+number.forEach(function square(num) {
+    console.log(num*num);
+});
+number.forEach((num) => {
+    console.log(num*num);
+});
+
+let marks = [99, 89, 67, 92, 78, 10, 96];
+let highMarks = marks.filter((val) => {
+    return val > 90;
+});
+console.log(highMarks);
+
+let num = prompt("Enter a number:");
+let numarr = [];
+for(let i=0; i<num; i++) {
+    numarr[i] = i + 1;
+}
+console.log(numarr);
+let sum = numarr.reduce((prev, curr) => {
+    return prev + curr;
+});
+console.log(sum);
+let prod = numarr.reduce((prev, curr) => {
+    return prev * curr;
+});
+console.log(prod);
+
+
+
+// ChatGPT questions Practice
+// 1:-
+function evenOdd(num) {
+    if(num%2 === 0) {
+        return "even";
+    }
+    return "odd";
+}
+let number = prompt("Enter a number:");
+let isOddEven = evenOdd(number);
+console.log(`The number ${number} is ${isOddEven}`);
+
+// 3:-
+function largeNum(arr) {
+    let greatest = arr.reduce((res, curr) => {
+        return res > curr ? res : curr;
+    });
+    return greatest;
+}
+let arr = [1, 5, 67, 34, 89 ,12, 100, 123, 67];
+console.log(arr);
+console.log(`The greatest number in the array is ${largeNum(arr)}`);
+
+// 4:-
+let largeNum = (arr) => {
+    let greatest = arr.reduce((res, curr) => {
+        return res > curr ? res : curr;
+    });
+    return greatest;
+}
+let arr = [1, 5, 67, 34, 89 ,12, 100, 123, 67];
+console.log(arr);
+console.log(`The greatest number in the array is ${largeNum(arr)}`);
+
+// 5:-
+function strReverse(str) {
+    let temp = "";
+    let length = str.length;
+    for(length; length > 0; length--) {
+        temp = temp.concat(str[length-1]);
+    }
+    return temp;
+}
+let str = "Harry";
+console.log(str);
+let reverseStr = strReverse(str);
+console.log(reverseStr);
+
+// 6:-
+function grtr(num1, num2) {
+    return num1 > num2 ? num1 : num2;
+}
+let a = Number(prompt("Enter the first number:"));
+let b = Number(prompt("Enter the second number:"));
+let greater = grtr(a, b);
+console.log(`The greater out of ${a} and ${b} is ${greater}`);
+
+// 7:-
+function charCount(str, char) {
+    let count=0;
+    for(let val of str) {
+        if(val === char) {
+            count++;
+        }
+    }
+    return count;
+}
+let str = "My name is Harry";
+let aCount = charCount(str, "a");
+console.log(`The number of times "a" appeared in the string is ${aCount}`);
+
+// 8:-
+function isPrime(num) {
+    let i = 2;
+    while(i < num) {
+        if(num%i === 0) {
+            return "not a prime number";
+        }
+        i++;
+    }
+    return "a prime number";
+}
+let number = Number(prompt("Enter a number:"));
+console.log(`The number ${number} is ${isPrime(number)}`);
+
+// 9:-
+let square = (num) => {
+    return num*num;
+}
+let number = Number(prompt("Enter a number:"));
+console.log(`The square of the number ${number} is ${square(number)}`);
+
+// 10:-
+function arrContain(arr, char) {
+    for(let val of arr) {
+        if(val == char) {
+            return "array contain that character";
+        }
+    }
+    return "array does not contain that character";
+}
+let arr = ["a", 6, true, 67.89, "Harry", 43, null, undefined];
+let char = "Harry";
+console.log(`Character: ${char} and ${arrContain(arr, char)}`);
+
+// 11:-
+let arr = [1, "Harry", "Your name", "Yo", 90.98, null];
+arr.forEach((val, index) => {
+    console.log(val, index);
+});
+
+// 12:-
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let newArr = arr.map((val) => {
+    return val*2;
+});
+console.log(arr);
+console.log(newArr);
+
+// 13:-
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let evenArr = arr.filter((val) => {
+    return val%2 === 0;
+});
+console.log(arr);
+console.log(evenArr);
+
+// 14:-
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let sum = arr.reduce((res, curr) => {
+    return res + curr;
+});
+console.log(arr);
+console.log(sum);
+
+// 15:-
+let strArr = ["Harry", "John", 'Romeo', 'Taylor', 'Conan Gray', "Olivia"];
+let lenArr = strArr.map((val) => {
+    return val.length;
+});
+console.log(strArr);
+console.log(lenArr);
+
+// 16 (I have doubt):-
+function unq(arr) {
+    for(let i = 0; i < arr.length; i++) {
+        for(let j = i + 1; j < arr.length; j++) {
+            if(arr[i] === arr[j]) {
+                arr.splice(j, 1);
+                j--;
+            }
+        }
+    }
+    return arr;
+}
+let arr = [1, 4, 67, 234, 234, 23, 1, 23, 89, 78, 234, 89, 1];
+console.log(arr);
+let newArr = unq(arr);
+console.log(newArr);
+
+// 17:-
+function capitalise(str) {
+    return str.toUpperCase();
+}
+let str = "Harry";
+let capStr = capitalise(str);
+console.log(str);
+console.log(capStr);
+
+// 19:-
+function longWord(str) {
+    let k=0;
+    let word = "";
+    for(let i=0; i < str.length; i++) {
+        if(str[i] === " ") {
+            let tempword = str.slice(k, i);
+            if(tempword.length > word.length) {
+                word = tempword;
+            }
+            k=i+1;
+        }
+    }
+    let tempword = str.slice(k, str.length);
+        if(tempword.length > word.length) {
+            word = tempword;
+        }
+    return word;
+}
+let str = "My name is Harry";
+let lWord = longWord(str);
+console.log(str);
+console.log(`Longest word: ${lWord}`);
+
+// 20:-
+let isPalindrome = (numStr) => {
+    let temp = "";
+    for(let i=numStr.length-1; i >= 0; i--) {
+        temp = temp.concat(numStr[i]);
+    }
+    return numStr === temp ? "Palindrome" : "Not a palindrome";
+};
+let number = prompt("Enter a number:");
+console.log(isPalindrome(number));
+
+
+
+function greet(name) {
+    console.log(`Hi ${name}! I'm Harry!\nNice to meet you!`);
+}
+let name = prompt("Enter your name:");
+greet(name);
+
+let str = prompt("Enter the string:");
+let arr = [];
+let j=0;
+let k=0;
+for(let i=0; i < str.length; i++) {
+    if(str[i] === " ") {
+        arr[j] = str.slice(k, i);
+        j++;
+        k=i+1;
+    }
+    arr[j] = str.slice(k, str.length);
+}
+console.log(str);
+console.log(arr);
+let revStr = "";
+for(let i=arr.length-1; i >= 0; i--) {
+    revStr = revStr + arr[i] + " ";
+}
+console.log(revStr);
+
+let arr = [1, 2, 3, 4];
+console.log(arr);
+arr.unshift(arr.pop());
+console.log(arr);
+
+// Claude Questions
+// Question 1:
+function generatePattern(num) {
+    let newArr = [1];
+    for(let i=0; i < (num-1); i++) {
+        newArr.push(newArr[i] + i + 1);
+    }
+    return newArr;
+}
+
+console.log(generatePattern(10));
+
+// Claude Questions
+// Question 1:
+function countEven(arr) {
+    let count=0;
+    for(let i=0; i<arr.length; i++) {
+        if(arr[i]%2 === 0) {
+            count++;
+        }
+    }
+    return count;
+}
+console.log(countEven([4, 3, 5, 10, 1121, 123456, 78, 90, 33, 22, 11]));
+
+// Question 2:
+function reverseStr(str) {
+    let revStr = "";
+    for(let i=(str.length-1); i >= 0; i--) {
+        revStr = revStr.concat(str[i]);
+    }
+    return revStr;
+}
+console.log(reverseStr("Harry"));
+
+// Question 3:
+function findMax(arr) {
+    let max = arr.reduce((prev, curr) => {
+        return prev > curr ? prev : curr;
+    })
+    return max;
+}
+console.log(findMax([1,5,2,67,23,1,2234,3,-234,54,0]));
+
+// Question 4:
+function sumRange(start, end) {
+    let sum = 0;
+    for(let i=start; i<=end; i++) {
+        sum += i;
+    }
+    return sum;
+}
+console.log(sumRange(1, 5));
+
+// Question 5:
+function hasVowel(str) {
+    for(let val of str.toLowerCase()) {
+        if(val === 'a' || val === 'e' || val === 'i' || val === 'o' || val === 'u') {
+            return true;
+        }
+    }
+    return false;
+}
+console.log(hasVowel("Harry"));
+
+document.querySelector("h2").innerText += " from Harry!"
+
+let divs = document.querySelectorAll(".box");
+console.dir(divs);
+// divs[0].innerText = "Changed text 1";
+// divs[1].innerText = "Changed text 2";
+// divs[2].innerText = "Changed text 3";
+let index = 1;
+for(div of divs) {
+    div.innerText = "New changed value " + index;
+    index++;
+}
+
+let newBtn = document.createElement("button");
+newBtn.innerText = "Click me!";
+newBtn.style.backgroundColor = "red";
+newBtn.style.color = "white";
+
+document.querySelector("body").prepend(newBtn);
+
+
+let content = document.querySelector("p");
+content.setAttribute("class", "newClass");
+
+let button = document.querySelector("button");
+let count = 0;
+button.addEventListener("click", () => {
+    if(count%2 === 0) {
+        document.querySelector("body").style.backgroundColor = "black";
+    } else {
+        document.querySelector("body").style.backgroundColor = "white";
+}
+count++;
+});
+
+let box = document.getElementById("box");
+let hoverStatus = "in";
+box.addEventListener("mouseenter", () => {
+    box.innerText = "You are inside div";
+});
+box.addEventListener("mouseleave", () => {
+    box.innerText = "You are outside div";
+});
+
+let para = document.querySelectorAll("p");
+para.forEach((p) => {
+    p.style.color = "blue";
+});
+
+let para = document.getElementById("p1");
+para.innerHTML = "<i>This is in italics</i>";
+
+let highlights = document.querySelectorAll(".highlight");
+highlights.forEach((el) => {
+    el.style.border = "2px solid black";
+});
+
+let newDiv = document.createElement("div");
+newDiv.innerText = "This div is added using JS";
+document.querySelector("body").append(newDiv);
+
+let clone = document.querySelector("div").cloneNode(true);
+let div = document.querySelector("div");
+div.append(clone);
+
+let div = document.querySelector("#box1");
+div.innerHTML = '';
+
+let button = document.querySelector("button");
+let Status = "off";
+button.addEventListener("click", () => {
+    if(Status === "off") {
+        button.setAttribute("class", "on");
+        Status = "on";
+        console.log("On");
+        button.innerText = "On";
+    } else {
+        button.setAttribute("class", "off");
+    Status = "off";
+    console.log("Off");
+    button.innerText = "Off";
+}
+});
+
+const obj = {
+    name : "Harr",
+    rollNo : 45,
+    age : 19
+};
+
+console.log(obj.name);
+console.log(obj["age"]);
+let str = "rollNo";
+console.log(obj[str]);
+*/
+
+let DATA = "Website Data"
+
+class User {
+    constructor(name, email) {
+        this.name = name;
+        this.email = email;
+    }
+    viewData() {
+        console.log("Data:", DATA);
+    }
+};
+
+class Admin extends User {
+    editData(data) {
+        DATA = data;
+    }
+};
+
+let student1 = new User("Harry", "harry123@gmail.com");
+console.log(student1.email);
+console.log(student1.name);
+student1.viewData();
+
+let admin = new Admin();
+// admin.editData("New Data");
