@@ -539,7 +539,6 @@ console.log(obj.name);
 console.log(obj["age"]);
 let str = "rollNo";
 console.log(obj[str]);
-*/
 
 let DATA = "Website Data"
 
@@ -566,3 +565,334 @@ student1.viewData();
 
 let admin = new Admin();
 // admin.editData("New Data");
+*/
+
+
+// // Q1
+// function greetingCallback() {
+//     console.log("Greeting completed.")
+// }
+
+// function greet(name, otherFunction) {
+//     setTimeout(() => {
+//         console.log(`Hello ${name}!`);
+//         otherFunction();
+//     }, 2000);
+// }
+
+// greet("John", greetingCallback);
+
+// // Q2
+// function sum(x, y) {
+//     console.log(x+y);
+// }
+// function multiply(x,y) {
+//     console.log(x*y);
+// }
+// function calculate(a, b, operation) {
+//     operation(a, b);
+// }
+// calculate(10, 5, sum);
+// calculate(10, 5, multiply);
+
+// // Q3
+// function openCallback() {
+//     console.log("Opening file...")
+// }
+// function downloadFile(fileName, openFunc) {
+//     console.log(`Downloading ${fileName}...`);
+//     setTimeout(() => {
+//         console.log("Download Complete.");
+//         openFunc();
+//     }, 3000);
+// }
+// downloadFile("resume.pdf", openCallback);
+
+// // Q4
+// function login(callback) {
+//     setTimeout(() => {
+//         console.log("Login Successful");
+//         callback();
+//     }, 2000);
+// }
+// function fetchingUser(callback) {
+//     setTimeout(() => {
+//         console.log("User Fetched");
+//         callback();
+//     }, 2000);
+// }
+// function fetchingPost(callback) {
+//     setTimeout(() => {
+//         console.log("Posts Fetched");
+//         callback();
+//     }, 2000);
+// }
+// function fetchingComments() {
+//     setTimeout(() => {
+//         console.log("Comments fetched");
+//     }, 2000);
+// }
+// function userLogin() {
+//     console.log("Loggin in...");
+//     login(() => {
+//         console.log("Fetching User...");
+//         fetchingUser(() => {
+//             console.log("Fetching Posts...");
+//             fetchingPost(() => {
+//                 console.log("Fetching Comments...");
+//                 fetchingComments();
+//             });
+//         });
+//     });
+// }
+// userLogin();
+
+// // Q5
+// function takeOrder(callback) {
+//     setTimeout(() => {
+//         console.log("Order taken!");
+//         callback();
+//     }, 2000);
+// }
+// function foodCook(callback) {
+//     setTimeout(() => {
+//         console.log("Food Cooked");
+//         callback();
+//     }, 2000);
+// }
+// function foodServe(callback) {
+//     setTimeout(() => {
+//         console.log("Food Served!");
+//         callback();
+//     }, 2000);
+// }
+// function collectPayment() {
+//     setTimeout(() => {
+//         console.log("Payment Collected!");
+//     }, 2000);
+// }
+// function foodOrder() {
+//     console.log("Taking Order...");
+//     takeOrder(() => {
+//         console.log("Cooking food...");
+//         foodCook(() => {
+//             console.log("Food Serving...");
+//             foodServe(() => {
+//                 console.log("Collecting payment...");
+//                 collectPayment();
+//             });
+//         });
+//     });
+// }
+// foodOrder();
+
+// // Q6
+// function choseMovie(callback) {
+//     setTimeout(() => {
+//         console.log("Movie chosen");
+//         callback();
+//     }, 2000);
+// }
+// function choseSeats(callback) {
+//     setTimeout(() => {
+//         console.log("Seats Chosen");
+//         callback();
+//     }, 2000);
+// }
+// function makePayment(callback) {
+//     setTimeout(() => {
+//         console.log("Payment Made");
+//         callback();
+//     }, 2000);
+// }
+// function printTickets() {
+//     setTimeout(() => {
+//         console.log("Tickets Printed");
+//     }, 2000);
+// }
+// function movieBooking() {
+//     console.log("Choosing Movie...");
+//     choseMovie(() => {
+//         console.log("Choosing Seats...");
+//         choseSeats(() => {
+//             console.log("Making Payment...");
+//             makePayment(() => {
+//                 console.log("Printing Tickets...");
+//                 printTickets();
+//             });
+//         });
+//     });
+// }
+// movieBooking()
+
+// // Q7
+// function greet(name) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log(`Hello ${name}!`);
+//             resolve("Done");
+//         }, 2000);
+//     });
+// }
+// greet("John").then((res) => {
+//     console.log(res);
+// });
+
+// // Q8
+// function downloadFile(fileName) {
+//     console.log("Downloading...");
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if(fileName) {
+//                 resolve("Downloaded");
+//             } else {
+//                 reject("Invalid Filename");
+//             }
+//         }, 2000);
+//     });
+// }
+// downloadFile("JohnFile.pdf")
+//     .then((res) => {
+//         console.log(res);
+//     })
+//     .catch((rej) => {
+//         console.log(rej);
+//     });
+
+// // Q9
+// function flipCoin() {
+//     return new Promise((resolve, reject) => {
+//         if(Math.random() >= 0.5) {
+//             resolve("You won");
+//         } else {
+//             reject("You lost");
+//         }
+//     });
+// }
+// let promise = flipCoin();
+// promise.then((res) => {
+//     console.log(res);
+// });
+// promise.catch((err) => {
+//     console.log(err);
+// });
+
+// // Q10
+// function login() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("Logged in");
+//         }, 2000);
+//     });
+// }
+// function getProfile() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("Got Profile")
+//         }, 2000);
+//     });
+// }
+// function getFriends() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("Got Friends")
+//         }, 2000);
+//     });
+// }
+// function getMessages() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("Got Messages")
+//         }, 2000);
+//     });
+// }
+// function userFlow() {
+//     console.log("Loggin in...");
+//     login()
+//         .then((res) => {
+//             console.log(res);
+//             console.log("Getting Profile...");
+//             return getProfile();
+//         })
+//         .then((res) => {
+//             console.log(res);
+//             console.log("Getting Friends...");
+//             return getFriends();
+//         })
+//         .then((res) => {
+//             console.log(res);
+//             console.log("Getting Messages...");
+//             return getMessages();
+//         })
+//         .then((res) => {
+//             console.log(res);
+//         });
+// }
+// userFlow();
+// // Explain this one pls... I didn't get what was your flow and mine... And also how to add catch statement?!:(
+
+// // Skipped 11th
+// // Q12
+// function checkBalance(balance) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if(balance > 500) resolve("Sufficient Balance");
+//             else reject("Insufficient Balance");
+//         }, 2000);
+//     });
+// }
+// function withdrawMoney() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("Money withdrawn");
+//         }, 2000);
+//     });
+// }
+// function printReceipt() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("Receipt Printed");
+//         }, 2000);
+//     });
+// }
+// function ATM(balance) {
+//     console.log("Insert Card...");
+//     checkBalance(balance)
+//         .then((res) => {
+//             console.log(res);
+//             console.log("Withdrawing money...");
+//             return withdrawMoney();
+//         }).then((res) => {
+//             console.log(res);
+//             console.log("Printing receipt...");
+//             return printReceipt();
+//         }).then((res) => {
+//             console.log(res);
+//         });
+//     checkBalance(balance)
+//         .catch((err) => {
+//             console.log(err);
+//         });
+// }
+// ATM(600);
+
+// // Skipped Q13
+// // Q14
+// function divide(a, b) {
+//     return new Promise((resolve, reject) => {
+//         if(b === 0) {
+//             reject("Cannot divide by 0");
+//         } else {
+//             resolve(a/b);
+//         }
+//     });
+// }
+// let promise = divide(10, 6);
+// promise.then((res) => {
+//     console.log(res);
+// });
+// promise.catch((err) => {
+//     console.log(err);
+// });
+
+// // Skipped the rest ones as I think they're pretty similar and I can do them
