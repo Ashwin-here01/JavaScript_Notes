@@ -144,15 +144,15 @@
 
 
 
-function getData1(dataId) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log("data", dataId);
-            resolve("Success");
-            // reject("Some error occured");
-        }, 2000);
-    });
-}
+// function getData1(dataId) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("data", dataId);
+//             resolve("Success");
+//             // reject("Some error occured");
+//         }, 2000);
+//     });
+// }
 
 // console.log("Fetching data 1...");
 // getData1(1).then(() => {
@@ -168,20 +168,103 @@ function getData1(dataId) {
 
 // Easier Way (Actual Promise Chaining)
 
-console.log("Fetching data 1...");
-getData1(1)
-    .then((res) => {
-        console.log("Fetching data 2...");
-        return getData1(2);
-    })
-    .then((res) => {
-        console.log("Fetching data 3...");
-        return getData1(3);
-    })
-    .then((res) => {
-        console.log("Fetching data 4...");
-        return getData1(4);
-    })
-    .then((res) => {
-        console.log(res);
+// console.log("Fetching data 1...");
+// getData1(1)
+//     .then((res) => {
+//         console.log("Fetching data 2...");
+//         return getData1(2);
+//     })
+//     .then((res) => {
+//         console.log("Fetching data 3...");
+//         return getData1(3);
+//     })
+//     .then((res) => {
+//         console.log("Fetching data 4...");
+//         return getData1(4);
+//     })
+//     .then((res) => {
+//         console.log(res);
+//     }).catch((err) => {
+//         console.log(err);
+//     });
+
+
+
+
+
+// Async-Await:
+// async function always return a promise.
+async function hello() {
+    console.log("hello");
+}
+
+// await : Stops the execution before the task is completed
+// Can only be used inside an async function
+
+function api() {
+    return new Promise((resolve, rejet) => {
+        setTimeout(() => {
+            console.log("weather data");
+            resolve(200);
+        }, 2000);
     });
+}
+
+async function getWeatherData() {
+    await api(); // 1st
+    await api(); // 2nd
+}
+// getData function
+
+function getData(dataId) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(`Data ${dataId}`);
+            resolve("success");
+        }, 2000);
+    });
+}
+
+async function asyncGetData() {
+    console.log("Fetching data 10...");
+    await getData(10);
+    console.log("Fetching data 20...");
+    await getData(20);
+    console.log("Fetching data 30...");
+    await getData(30);
+    console.log("Fetching data 40...");
+    await getData(40);
+}
+
+
+// IIFE : Immediately Invoked Function Expression
+// A function which is executed as soon as it is defined
+// Can only be used once
+// Has no name
+// (function)();
+/*
+(function () {
+  // statements…
+})();
+
+// arrow function variant
+(() => {
+  // statements…
+})();
+
+// async IIFE
+(async () => {
+  // statements…
+})();
+*/
+
+(async function asyncGetData() {
+    console.log("Fetching data 10...");
+    await getData(10);
+    console.log("Fetching data 20...");
+    await getData(20);
+    console.log("Fetching data 30...");
+    await getData(30);
+    console.log("Fetching data 40...");
+    await getData(40);
+})();
