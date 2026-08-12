@@ -897,4 +897,208 @@ promise.catch((err) => {
 });
 
 // Skipped the rest ones as I think they're pretty similar and I can do them
+
+
+// ChatGPT Questions on Async-await
+// 1
+async function greet() {
+    return "hello"
+}
+
+console.log(greet());
+
+greet().then(console.log);
+
+// 2
+fetchData()
+.then(data => processData(data))
+.then(result => console.log(result))
+.catch(err => console.log(err));
+
+(async function() {
+    try {
+        const data = await fetchData();
+        const result = await processData(data);
+        console.log(result);
+    } catch(err) {
+        console.log(err);
+    }
+}) ();
+
+// 3
+async function getData() {
+    const data = await fetchData();
+    console.log(data);
+}
+
+async function getData() {
+    try {
+        const data = await fetchData();
+        console.log(data);
+        throw new Error("Oops");
+    } catch(err) {
+        console.log("Error:", err);
+    } finally {
+        console.log("Fuck off");
+    }
+}
+
+// 4
+function a() {
+    throw new Error("Something went wrong");
+}
+console.log(a());
+
+// 5
+function delay(ms) {
+    return new Promise(resolve => {
+        setTimeout(resolve, ms);
+    });
+}
+
+async function run() {
+    await delay(1000);
+    delay(1000);
+    console.log("Done");
+}
+
+run();
+
+// 6
+function delay(ms) {
+    return new Promise(resolve => {
+        setTimeout(resolve, ms);
+    })
+}
+
+(async function() {
+    await delay(2000);
+    console.log("After 2 seconds of delay");
+}) ();
+
+// 7
+async function fetchUser() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(
+                {
+                    name: "Alex",
+                    age: 22
+                }
+            )
+        }, 2000);
+    });
+}
+
+(async function() {
+    const info = await fetchUser();
+    for(let i in info) {
+        console.log(i, info[i]);
+    }
+}) ();
+
+function step1() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("step 1");
+        }, 1000);
+    });
+}
+function step2() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("step 2");
+        }, 1000);
+    });
+}
+function final() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Finished");
+        }, 1000);
+    });
+}
+
+(async function() {
+    console.log(await step1());
+    console.log(await step2());
+    console.log(await final());
+}) ();
+
+function step1() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject("Error running this step");
+        }, 1000);
+    });
+}
+
+let i = 0;
+async function callStep1() {
+    try {
+        await step1();
+    } catch(err) {
+        if(i === 3) {
+            console.log(err);
+        } else {
+            i++;
+        callStep1();
+    }
+}
+}
+
+login()
+.then(token => getProfile(token))
+.then(profile => getPosts(profile.id))
+.then(posts => console.log(posts))
+.catch(console.error);
+
+(async function() {
+    try {
+        const token = await login();
+        const profile = await getProfile(token);
+        const posts = await getPosts(profile.id);
+        console.log(posts);
+    } catch(error) {
+        console.log(error);
+    }
+}) ();
+
+function fetchURL() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve("URL.com");
+        }, 1000);
+    })
+}
+
+async function callFetchURL() {
+    const r1 = await fetchURL();
+    return [r1, r2, r3, r4, r5];
+}
+
+async function test() {
+    try {
+        throw new Error("Oops");
+    } catch (e) {
+        console.log(e.message);
+  }
+}
+
+test();
+
+async function test() {
+    throw new Error("Something went wrong");
+}
+
+test();
+
+const p1 = Promise.resolve(10);
+const p2 = Promise.resolve(20);
+const p3 = Promise.resolve(30);
+
+Promise.all([p1, p2, p3])
+.then(results => {
+    console.log(results); // [10, 20, 30]
+});
 */
