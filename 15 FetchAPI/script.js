@@ -5,7 +5,7 @@ async function getFacts() {
     console.log("Getting data...");
     const response = await fetch(URL); // By default GET request
     console.log(response);
-    const data = await response.json(); // JSON format (JavaScript Object Notation)
+    const data = await response.json(); // JSON format (JavaScript Object Notation) returns a Promise
     console.log(data.data[0].attributes.name);
     console.log(data.data[0].attributes.description);
     console.log(response.headers);
